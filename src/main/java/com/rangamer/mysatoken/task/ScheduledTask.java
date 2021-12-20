@@ -30,9 +30,12 @@ public class ScheduledTask {
     @Autowired
     BiCookieMapper biCookieMapper;
 
+
+
     /**
      * 每天上午10:15触发
      */
+    @Async("up_thread")
     @Scheduled(cron="0 15 10 * * ?")
     public void scheduledTask() {
         //查出所有的cookies
@@ -43,6 +46,7 @@ public class ScheduledTask {
         cookieList.forEach(cookie -> ThreadUtil.execAsync(() -> {
             try {
                 upLevelService.getInfo(cookie,true);
+                upLevelService.getInfo(cookie,false);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -53,6 +57,7 @@ public class ScheduledTask {
     /**
      * 上次执行后200秒执行
      */
+    @Async("up_thread")
     @Scheduled(fixedRate = 3600000)
     public void scheduledTask2() {
         QueryWrapper<BiCookie> qw = new QueryWrapper<>();

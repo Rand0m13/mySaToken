@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 
-import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 
 /**
  * @author jesse
@@ -15,8 +15,8 @@ import java.util.concurrent.Executor;
 @EnableAsync
 public class ExecutorConfig {
 
-    @Bean("up_thread")
-    public Executor upExecutor() {
+    @Bean("upThread")
+    public ExecutorService upExecutor() {
         //获取当前机器的核数
         int cpuNum = Runtime.getRuntime().availableProcessors();
         return ExecutorBuilder.create()

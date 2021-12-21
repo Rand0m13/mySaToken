@@ -13,6 +13,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.rangamer.mysatoken.util.BIJsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -41,9 +42,19 @@ public class UpLevelService {
     }
 
     /**
+     * 套一层这个来实现多线程 @Async 返回值为void或者Future，我选择void
+     * @param cookie
+     * @param up
+     */
+    @Async("upThread")
+    public void toUp(String cookie,boolean up) {
+        this.getInfo(cookie,up);
+    }
+
+    /**
      * 执行升级
      * @param cookie
-     * @return
+     * @param up
      */
     public String getInfo(String cookie,boolean up) {
         String msg = "啥都没干！";

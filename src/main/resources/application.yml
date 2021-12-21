@@ -4,7 +4,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:postgresql://127.0.0.1:5432/rangamer
     username: postgres
-    password: root
+    password: 5tgBels6H^
 
 server:
   port: 8081

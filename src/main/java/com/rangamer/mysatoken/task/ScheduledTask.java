@@ -34,7 +34,6 @@ public class ScheduledTask {
     /**
      * 每天上午10:15触发
      */
-    @Async("up_thread")
     @Scheduled(cron="0 15 10 * * ?")
     public void scheduledTask() {
         //查出所有的cookies

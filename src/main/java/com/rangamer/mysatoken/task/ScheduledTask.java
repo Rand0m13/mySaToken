@@ -52,7 +52,6 @@ public class ScheduledTask {
         cookieList.forEach(cookie->{
             try {
                 upLevelService.toUp(cookie,true);
-                upLevelService.toUp(cookie,false);
             } catch (Exception e){
                 e.printStackTrace();
             }

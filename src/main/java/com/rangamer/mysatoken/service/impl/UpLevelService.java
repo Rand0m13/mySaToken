@@ -87,6 +87,7 @@ public class UpLevelService {
                     this.getActiveInfo(cookie);
                 }
             } else {
+                log.error("cookie错误："+cookie);
                 throw new ValidateException("cookie错误！");
             }
         }

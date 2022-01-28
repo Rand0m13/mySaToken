@@ -3,6 +3,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     url: jdbc:postgresql://127.0.0.1:5432/rangamer
+    #url: jdbc:postgresql://1.15.86.77:5432/rangamer
     username: postgres
     password: 5tgBels6H^
 
